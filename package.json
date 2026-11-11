@@ -45,7 +45,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^19.6.0",
     "@map-colonies/eslint-config": "^4.0.0",
     "@map-colonies/prettier-config": "^0.0.1",
