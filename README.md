@@ -1,6 +1,6 @@
 # App-Shared
 
-A centralized TypeScript package for shared, cross-domain resources, designed to reduce code duplication and improve type safety across Map Colonies services.
+A centralized TypeScript package for APPLICATION(S) shared, cross-domain resources, designed to reduce code duplication and improve type safety across Map Colonies services.
 
 ## Package Design
 
