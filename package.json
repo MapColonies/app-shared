@@ -68,8 +68,7 @@
     "standard-version": "^9.5.0"
   },
   "dependencies": {
-    "@map-colonies/types": "^1.12.4",
-    "mime-types": "^3.0.2",
+    "@map-colonies/types": "^1.12.5",
     "zod": "^3.24.1"
   }
 }
