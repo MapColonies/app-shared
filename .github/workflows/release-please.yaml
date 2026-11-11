@@ -38,7 +38,7 @@ jobs:
 
       - id: release
         name: Run release-please
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           # this assumes that you have created a personal access token
           # (PAT) and configured it as a GitHub action secret named
