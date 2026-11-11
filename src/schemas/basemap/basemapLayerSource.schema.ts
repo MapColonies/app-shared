@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { z } from 'zod';
+import { Domain } from '@map-colonies/types';
 import { SourceType } from '../../enums/common/metadata/sourceType';
-import { Domain } from '../../enums/common/domain';
 import { ResourceResolutionStatus } from '../../enums/basemap/resourceResolutionStatus';
 
 export const RasterUniquenessSchema = z

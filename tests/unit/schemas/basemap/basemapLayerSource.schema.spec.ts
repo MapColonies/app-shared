@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Domain } from '../../../../src/enums/common/domain';
+import { Domain } from '@map-colonies/types';
 import { SourceType } from '../../../../src/enums/common/metadata/sourceType';
 import { ResourceResolutionStatus } from '../../../../src/enums/basemap/resourceResolutionStatus';
 import {
