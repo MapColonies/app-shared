@@ -82,7 +82,7 @@ describe('createBasemapSchema', () => {
   const schema = createBasemapSchema(z.object({ id: z.string() }), z.object({ id: z.string() }));
 
   function resolvedBasemap(): Record<string, unknown> {
-    const [catalogLayer, externalLayer] = baseInput().layers as { source: Record<string, unknown> }[];
+    const [catalogLayer, externalLayer] = baseInput().layers as [{ source: Record<string, unknown> }, { source: Record<string, unknown> }];
     return {
       ...baseInput(),
       id: 'generated-id',
