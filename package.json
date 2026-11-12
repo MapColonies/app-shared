@@ -69,6 +69,6 @@
   },
   "dependencies": {
     "@map-colonies/types": "^1.12.5",
-    "zod": "^3.24.1"
+    "zod": "^4.6.7"
   }
 }
