@@ -29,7 +29,10 @@ export const BasemapLayerInputSchema = BasemapLayerBaseSchema.extend({
 export type BasemapLayerInput = z.infer<typeof BasemapLayerInputSchema>;
 
 export const BasemapWriteInputSchema = z.object({
-  name: z.string().refine((value) => value.trim().length > 0, { message: 'name must not be empty' }),
+  name: z
+    .string()
+    .min(1)
+    .refine((value) => value.trim().length > 0, { message: 'name must not be empty' }),
   thumbnail: BasemapThumbnailSchema,
   isCurrent: z.boolean(),
   isForPreview: z.boolean(),
