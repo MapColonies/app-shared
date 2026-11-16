@@ -46,7 +46,7 @@ export interface BasemapLayerOutput<TLayer = unknown, TCapabilities = unknown> e
   source: BasemapLayerSourceOutput<TLayer, TCapabilities>;
 }
 
-export function createBasemapLayerOutputSchema<TLayer extends z.ZodTypeAny, TCapabilities extends z.ZodTypeAny>(
+export function createBasemapLayerOutputSchema<TLayer extends z.AnyZodObject, TCapabilities extends z.ZodTypeAny>(
   layerSchema: TLayer,
   capabilitiesSchema: TCapabilities
 ): z.ZodType<BasemapLayerOutput<z.infer<TLayer>, z.infer<TCapabilities>>> {
@@ -59,7 +59,7 @@ export interface Basemap<TLayer = unknown, TCapabilities = unknown> extends Omit
   layers: BasemapLayerOutput<TLayer, TCapabilities>[];
 }
 
-export function createBasemapSchema<TLayer extends z.ZodTypeAny, TCapabilities extends z.ZodTypeAny>(
+export function createBasemapSchema<TLayer extends z.AnyZodObject, TCapabilities extends z.ZodTypeAny>(
   layerSchema: TLayer,
   capabilitiesSchema: TCapabilities
 ): z.ZodType<Basemap<z.infer<TLayer>, z.infer<TCapabilities>>> {
