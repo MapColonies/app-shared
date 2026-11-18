@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Check out TS Project Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Init nodejs
         uses: ./.github/actions/init-npm
         with:
@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Check out TS Project Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Init nodejs
         uses: ./.github/actions/init-npm
       - name: Run tests
