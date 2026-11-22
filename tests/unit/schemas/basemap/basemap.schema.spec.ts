@@ -44,9 +44,25 @@ describe('BasemapWriteInputSchema', () => {
     expect(result.success && result.data.name).toBe('  Satellite Europe  ');
   });
 
-  it('rejects an empty thumbnail url', () => {
-    const input = { ...baseInput(), thumbnail: { url: '', width: 128, height: 128 } };
-    expect(BasemapWriteInputSchema.safeParse(input).success).toBe(false);
+  it.each(['', '   ', '\t\n'])('rejects an empty or whitespace-only thumbnail url (%j)', (url) => {
+    const input = { ...baseInput(), thumbnail: { url, width: 128, height: 128 } };
+    const result = BasemapWriteInputSchema.safeParse(input);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues).toEqual([expect.objectContaining({ path: ['thumbnail', 'url'], message: 'thumbnail.url must not be empty' })]);
+  });
+
+  // The rule is only "not blank": the URL's form is not validated (same as 0.2.4 and earlier).
+  it.each([
+    'https://example.com/thumb.png',
+    '/pvc/files/thumb.png',
+    'memory://basemaps/thumbnails/a.png',
+    'data:image/png;base64,iVBORw0KGgo',
+    ' padded ',
+  ])('accepts any non-blank thumbnail url (%j) without trimming it', (url) => {
+    const input = { ...baseInput(), thumbnail: { url, width: 128, height: 128 } };
+    const result = BasemapWriteInputSchema.safeParse(input);
+    expect(result.success).toBe(true);
+    expect(result.success && result.data.thumbnail.url).toBe(url);
   });
 
   it('rejects a thumbnail with the wrong dimensions', () => {

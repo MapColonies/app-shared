@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { z } from 'zod';
 import { type BasemapLayerSourceOutput, BasemapLayerSourceInputSchema, createBasemapLayerSourceOutputSchema } from './basemapLayerSource.schema';
-import { THUMBNAIL_URL_MESSAGE, THUMBNAIL_URL_PATTERN } from './thumbnailUrl';
 
 const THUMBNAIL_DIMENSION_PIXELS = 128;
 const MIN_OPACITY = 0;
@@ -16,7 +15,9 @@ const BasemapLayerBaseSchema = z.object({
 });
 
 export const BasemapThumbnailSchema = z.object({
-  url: z.string().url({ message: THUMBNAIL_URL_MESSAGE }).regex(THUMBNAIL_URL_PATTERN, { message: THUMBNAIL_URL_MESSAGE }),
+  url: z.string().refine((value) => value.trim().length > 0, {
+    message: 'thumbnail.url must not be empty',
+  }),
   width: z.literal(THUMBNAIL_DIMENSION_PIXELS),
   height: z.literal(THUMBNAIL_DIMENSION_PIXELS),
 });
