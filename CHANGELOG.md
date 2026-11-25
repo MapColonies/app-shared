@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.4](https://github.com/MapColonies/app-shared/compare/v0.2.3...v0.2.4) (2026-11-25)
+
+
+### Bug Fixes
+
+* external layer details with extras prop ([0bc9028](https://github.com/MapColonies/app-shared/commit/0bc9028596b6e49f7db2348f4358bfee0bf5a4a2))
+* external layer details with extras prop ([6a6fa13](https://github.com/MapColonies/app-shared/commit/6a6fa13ec7d82a016490f77d1176763fa7d50784))
+* pkg export and raster uniquiness ([0702efa](https://github.com/MapColonies/app-shared/commit/0702efa7770c4613c53fc0ad68281ac5677d5b7a))
+* pkg export and raster uniquiness ([8c69d2f](https://github.com/MapColonies/app-shared/commit/8c69d2f7137fb03b3af2e19c6151bcb92848d373))
+
 ### [0.2.4](https://github.com/MapColonies/app-shared/compare/v0.2.3...v0.2.4) (2026-11-16)
 
 
