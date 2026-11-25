@@ -25,13 +25,13 @@ describe('BasemapLayerSourceInputSchema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('accepts an EXTERNAL source with passthrough provider-specific keys', () => {
+  it('accepts an EXTERNAL source with provider-specific keys nested under extras', () => {
     const result = BasemapLayerSourceInputSchema.safeParse({
       type: SourceType.EXTERNAL,
-      details: { protocol: 'WMTS', name: 'n', url: 'https://example.com', layer: 'ortho', matrixSet: 'EPSG:3857' },
+      details: { protocol: 'WMTS', name: 'n', url: 'https://example.com', extras: { layer: 'ortho', matrixSet: 'EPSG:3857' } },
     });
     expect(result.success).toBe(true);
-    expect(result.success && result.data.type === SourceType.EXTERNAL && result.data.details.layer).toBe('ortho');
+    expect(result.success && result.data.type === SourceType.EXTERNAL && result.data.details.extras?.layer).toBe('ortho');
   });
 
   it('rejects an EXTERNAL source with empty details.name', () => {

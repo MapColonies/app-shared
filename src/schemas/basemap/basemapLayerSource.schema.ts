@@ -12,13 +12,12 @@ export const RasterUniquenessSchema = z
   .describe('Identifies a raster catalog product by productId + productType');
 export type RasterUniqueness = z.infer<typeof RasterUniquenessSchema>;
 
-export const ExternalLayerDetailsSchema = z
-  .object({
-    protocol: z.string().describe('Serving protocol of an external layer'),
-    name: z.string().refine((value) => value.trim().length > 0, { message: 'details.name must not be empty' }),
-    url: z.string().refine((value) => value.trim().length > 0, { message: 'details.url must not be empty' }),
-  })
-  .passthrough();
+export const ExternalLayerDetailsSchema = z.object({
+  protocol: z.string().describe('Serving protocol of an external layer'),
+  name: z.string().refine((value) => value.trim().length > 0, { message: 'details.name must not be empty' }),
+  url: z.string().refine((value) => value.trim().length > 0, { message: 'details.url must not be empty' }),
+  extras: z.object({}).passthrough().optional().describe('Provider-specific extra fields not covered by protocol/name/url (e.g. WMTS/XYZ options)'),
+});
 export type ExternalLayerDetails = z.infer<typeof ExternalLayerDetailsSchema>;
 
 export const CatalogResourceLayerSourceSchema = z.object({
